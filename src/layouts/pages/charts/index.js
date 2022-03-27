@@ -40,35 +40,34 @@ function Charts() {
         <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} sx={{ lineHeight: 0 }}>
-              <MDTypography variant="h5">Charts</MDTypography>
+              {/* <MDTypography variant="h5">Charts</MDTypography> */}
               <MDTypography variant="button" color="text">
-                Charts on this page use Chart.js - Simple yet flexible JavaScript charting for
-                designers & developers.
+                Youth Department
               </MDTypography>
             </Grid>
           </Grid>
         </MDBox>
         <MDBox mb={6}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={12}>
               <DefaultLineChart
                 icon={{ component: "insights" }}
-                title="Line chart"
-                description="Product insights"
+                title="Youth Department"
+                description="Insights"
                 chart={defaultLineChartData}
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            {/* <Grid item xs={12} md={6}>
               <GradientLineChart
                 icon={{ component: "show_chart" }}
                 title="Line chart with gradient"
                 description="Visits from devices"
                 chart={gradientLineChartData}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
         </MDBox>
-        <MDBox mb={6}>
+        {/* <MDBox mb={6}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <VerticalBarChart
@@ -87,8 +86,8 @@ function Charts() {
               />
             </Grid>
           </Grid>
-        </MDBox>
-        <MDBox mb={6}>
+        </MDBox> */}
+        {/* <MDBox mb={6}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <MixedChart
@@ -108,8 +107,8 @@ function Charts() {
               />
             </Grid>
           </Grid>
-        </MDBox>
-        <MDBox mb={6}>
+        </MDBox> */}
+        {/* <MDBox mb={6}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <DefaultDoughnutChart
@@ -128,8 +127,8 @@ function Charts() {
               />
             </Grid>
           </Grid>
-        </MDBox>
-        <MDBox mb={3}>
+        </MDBox> */}
+        {/* <MDBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <RadarChart
@@ -148,7 +147,7 @@ function Charts() {
               />
             </Grid>
           </Grid>
-        </MDBox>
+        </MDBox> */}
       </MDBox>
       <Footer />
     </DashboardLayout>

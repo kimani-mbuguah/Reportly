@@ -15,7 +15,7 @@ import ivana from "assets/images/ivana-squares.jpg";
 
 const dataTableData = {
   columns: [
-    { Header: "id", accessor: "id", Cell: ({ value }) => <IdCell id={value} /> },
+    { Header: "Department", accessor: "id", Cell: ({ value }) => <IdCell id={value} /> },
     {
       Header: "date",
       accessor: "date",

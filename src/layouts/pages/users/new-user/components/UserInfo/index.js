@@ -27,7 +27,7 @@ function UserInfo({ formData }) {
   return (
     <MDBox>
       <MDBox mt={1.625}>
-      {/* <Grid item xs={12} sm={12}>
+      <Grid item xs={12} sm={12}>
           <Autocomplete
               options={["Pastor", "Church Clerk", "Deaconny", "AMO" ]}
               renderInput={(params) => <MDInput 
@@ -42,7 +42,7 @@ function UserInfo({ formData }) {
                 success={!errors.department && departmentV.length > 0}
                />}
             />
-          </Grid> */}
+          </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12}>
             <FormField
