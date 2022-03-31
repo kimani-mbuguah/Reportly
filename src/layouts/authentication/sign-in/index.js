@@ -31,23 +31,11 @@ function Basic() {
   const [password, setPassword] = useState("");
   const handleSubmit = (event)=>{
     event.preventDefault();
-
-    const values= {
-      email : email,
-      password : password
-    }
-
-    console.log(values)
-
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
       const user = userCredential.user;
-      console.log(user)
-
       localStorage.setItem("user", user)
       navigate("/home");
-      // ...
     })
     .catch((error) => {
       localStorage.removeItem("user")
@@ -106,21 +94,6 @@ function Basic() {
               <MDButton variant="gradient" color="info" fullWidth type="submit">
                 sign in
               </MDButton>
-            </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
-                Forgot password?{" "}
-                <MDTypography
-                  component={Link}
-                  to="/auth/reset-password"
-                  variant="button"
-                  color="info"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  Reset
-                </MDTypography>
-              </MDTypography>
             </MDBox>
           </MDBox>
         </MDBox>

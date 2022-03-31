@@ -4,6 +4,7 @@ import DepartmentDetail from "layouts/data/report-detail";
 import ReportEntry from "layouts/data/reports";
 import ReportList from "layouts/data/report-list";
 import SignIn from "layouts/authentication/sign-in";
+import Department from "layouts/data/report-list/department"
 
 
 
@@ -13,13 +14,23 @@ import Icon from "@mui/material/Icon";
 const routes = [
   {
     type: "collapse",
-    name: "Home",
-    key: "home",
+    name: "One Departments Report",
+    key: "report",
     icon: <Icon fontSize="medium">apps</Icon>,
     route: "/home",
-    component: <Dashboard />,
+    component: <Department />,
     noCollapse: true,
   },
+  {
+    type: "collapse",
+    name: "All Departments Report",
+    key: "reports",
+    icon: <Icon fontSize="medium">apps</Icon>,
+    route: "/departments/all",
+    component: <ReportList />,
+    noCollapse: true,
+  },
+
   {
     type: "collapse",
     name: "Submit Report",
@@ -28,26 +39,6 @@ const routes = [
     route: "/report/submit",
     component: <ReportEntry />,
     noCollapse: true,
-  },
-  {
-    type: "collapse",
-    name: "Reports",
-    key: "reports",
-    icon: <Icon fontSize="medium">apps</Icon>,
-    collapse: [
-      {
-        name: "One Department",
-        key: "one-department",
-        route: "/reports/one-department", 
-        component: <DepartmentDetail />,
-      },
-      {
-        name: "All Departments",
-        key: "all departments",
-        route: "/repports/all-departments",
-        component: <ReportList />,
-      },
-    ],
   },
   {
     type: "",

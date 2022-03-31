@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { doc, setDoc } from "firebase/firestore"; 
 
 
@@ -20,11 +22,12 @@ import FormField from "layouts/data/components/FormField";
 
 // Data
 import selectData from "layouts/data/reports/components/Report-entry/data/selectData";
-import { util } from "prettier";
 
 import db, {makeID} from "firebaseMain"
 
 function BasicInfo() {
+  const navigate = useNavigate();
+
   const departments = ["Pastor", "Church Clerk", "Deaconny", "AMO", "AWO", "Youth", "Children", " Family Life", "Camp Meeting", "Development", "Sabbath School", "Stewardship", "Treasury", "Health" ];
   const pillars = ["Worship", "Evangelism", "Family", "Mentorship", "Sustainability"]
   const objectives = ["Reach Out To God", "Reach In With God", "Reach Out With God", "Equip For Reaching", "Strengthening Family", "Euiped For Leadership", "Enhance Sustainable Development"]
@@ -67,11 +70,21 @@ function BasicInfo() {
       comments: comments
     }
 
-    setDoc(doc(db, "reports", makeID(9)), values).then(success=>{
-      console.log("Data submitted successfully")
-    }).catch(error=>{
-      console.error(error)
-    })
+    
+    if(
+      challenges.length == 0 || achievements.length == 0 || 
+      utilizedBudget.length == 0 || plannedBudget.length == 0 || 
+      budget.length == 0 || kpi.length == 0 || activityStatus.length == 0
+      || activities.length == 0 || startDateDay.length == 0 || endDateDay.length == 0
+      || pillar.length == 0 || objective.length == 0 || department.length == 0){
+      alert("One or more field is empty!")
+    }else{
+      setDoc(doc(db, "reports", makeID(9)), values).then(success=>{
+        navigate("/home")
+      }).catch(error=>{
+        console.error(error)
+      })
+    }
 
   };
   return (

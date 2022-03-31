@@ -1,7 +1,3 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-
-
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
@@ -17,26 +13,10 @@ import DashboardNavbar from "layout-components/Navbars/DashboardNavbar";
 import Footer from "layout-components/Footer";
 import ComplexStatisticsCard from "layout-components/Cards/StatisticsCards/ComplexStatisticsCard";
 
-//const auth = getAuth();
 
 
 function Analytics() {
-  const navigate = useNavigate();
-
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     // User is signed in, see docs for a list of available properties
-  //     // https://firebase.google.com/docs/reference/js/firebase.User
-  //     const uid = user.uid;
-
-  //     console.log(uid)
-  //     // ...
-  //   } else {
-  //     // User is signed out
-  //     // ...
-  //     navigate("/auth/sign-in")
-  //   }
-  // });
+  
   // Action buttons for the BookingCard
   const actionButtons = (
     <>

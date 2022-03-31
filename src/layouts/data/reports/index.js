@@ -5,13 +5,15 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 
 // Settings page components
-import BaseLayout from "layouts/data/components/BaseLayout";
+import DashboardLayout from "layout-components/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "layout-components/Navbars/DashboardNavbar";
 import BasicInfo from "layouts/data/reports/components/Report-entry";
 
 
 function Settings() {
   return (
-    <BaseLayout>
+    <DashboardLayout>
+      <DashboardNavbar />
       <MDBox mt={4}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={12}>
@@ -25,7 +27,7 @@ function Settings() {
           </Grid>
         </Grid>
       </MDBox>
-    </BaseLayout>
+    </DashboardLayout>
   );
 }
 

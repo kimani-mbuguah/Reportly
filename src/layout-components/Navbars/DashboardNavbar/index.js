@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 // react-router components
 import { useLocation, Link } from "react-router-dom";
@@ -18,7 +20,7 @@ import MDBox from "components/MDBox";
 
 //  examples
 import Breadcrumbs from "layout-components/Breadcrumbs";
-import NotificationItem from "layout-components/Items/NotificationItem";
+
 
 // Custom styles for DashboardNavbar
 import {
@@ -44,6 +46,16 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
 
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+    } else {
+      navigate("/auth/sign-in")
+    }
+  });
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
@@ -70,6 +82,13 @@ function DashboardNavbar({ absolute, light, isMini }) {
     return () => window.removeEventListener("scroll", handleTransparentNavbar);
   }, [dispatch, fixedNavbar]);
 
+  const handleLogout = ()=>{
+    signOut(auth).then(() => {
+
+    }).catch((error) => {
+
+    });
+  }
   const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
   const handleCloseMenu = () => setOpenMenu(false);
 
@@ -104,11 +123,9 @@ function DashboardNavbar({ absolute, light, isMini }) {
         {isMini ? null : (
           <MDBox sx={(theme) => navbarRow(theme, { isMini })}>
             <MDBox color={light ? "white" : "inherit"}>
-              <Link to="/auth/sign-in">
-                <IconButton sx={navbarIconButton} size="small" disableRipple>
-                  <Icon sx={iconsStyle}>account_circle</Icon>
-                </IconButton>
-              </Link>
+              <IconButton sx={navbarIconButton} size="small" disableRipple onClick={handleLogout}>
+                <Icon sx={iconsStyle}>logout</Icon>
+              </IconButton>
               <IconButton
                 size="small"
                 disableRipple

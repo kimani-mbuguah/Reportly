@@ -1,20 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 PRO React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-pro-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/* eslint-disable react/prop-types */
-// ProductsList page components
 import IdCell from "layouts/data/report-list/components/IdCell";
 import DefaultCell from "layouts/data/report-list/components/DefaultCell";
 import StatusCell from "layouts/data/report-list/components/StatusCell";
@@ -28,21 +11,22 @@ import team4 from "assets/images/team-4.jpg";
 import team5 from "assets/images/team-5.jpg";
 import ivana from "assets/images/ivana-squares.jpg";
 
-const dataTableData = {
+
+const dataTableData = {  
   columns: [
-    { Header: "id", accessor: "id", Cell: ({ value }) => <IdCell id={value} /> },
+    { Header: "Department", accessor: "id", Cell: ({ value }) => <IdCell id={value} /> },
     {
-      Header: "date",
+      Header: "Objective",
       accessor: "date",
       Cell: ({ value }) => <DefaultCell value={value} />,
     },
     {
-      Header: "status",
+      Header: "Pillar",
       accessor: "status",
       Cell: ({ value }) => {
         let status;
 
-        if (value === "paid") {
+        if (value === "Paid") {
           status = <StatusCell icon="done" color="success" status="Paid" />;
         } else if (value === "refunded") {
           status = <StatusCell icon="replay" color="dark" status="Refunded" />;
@@ -54,14 +38,15 @@ const dataTableData = {
       },
     },
     {
-      Header: "customer",
+      Header: "Start Date",
       accessor: "customer",
       Cell: ({ value: [name, data] }) => (
         <CustomerCell image={data.image} color={data.color || "dark"} name={name} />
       ),
     },
+    
     {
-      Header: "product",
+      Header: "Planned Activities",
       accessor: "product",
       Cell: ({ value }) => {
         const [name, data] = value;
@@ -74,7 +59,7 @@ const dataTableData = {
         );
       },
     },
-    { Header: "revenue", accessor: "revenue", Cell: ({ value }) => <DefaultCell value={value} /> },
+    { Header: "Status", accessor: "revenue", Cell: ({ value }) => <DefaultCell value={value} /> },
   ],
 
   rows: [
