@@ -12,8 +12,8 @@ import Icon from "@mui/material/Icon";
 import MDBox from "components/MDBox";
 
 //  examples
-import Sidenav from "examples/Sidenav";
-import Configurator from "examples/Configurator";
+import Sidenav from "layout-components/Sidenav";
+import Configurator from "layout-components/Configurator";
 
 //  themes
 import theme from "assets/theme";
@@ -29,6 +29,9 @@ import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "co
 // Images
 import brandWhite from "assets/images/logo-ct.png";
 import brandDark from "assets/images/logo-ct-dark.png";
+
+import db from "firebaseMain"
+
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();

@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 //  components
 import MDBox from "components/MDBox";
 
-import PageLayout from "examples/LayoutContainers/PageLayout";
+import PageLayout from "layout-components/LayoutContainers/PageLayout";
 
 // Authentication pages components
 import Footer from "layouts/authentication/components/Footer";
